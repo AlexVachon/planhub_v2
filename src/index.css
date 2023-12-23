@@ -18,3 +18,8 @@ code {
   color: #A9A9A9;
   text-decoration: underline;
 }
+
+a li div:hover {
+  border-bottom: 1px solid white;
+  opacity: 0.8;
+}

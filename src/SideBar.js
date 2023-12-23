@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -6,18 +6,29 @@ import {
   CDBSidebarHeader,
   CDBSidebarMenu,
   CDBSidebarMenuItem,
-} from 'cdbreact';
-import { NavLink } from 'react-router-dom';
+} from "cdbreact";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
-      <CDBSidebar className='bg-black'>
+    <div
+      style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}
+    >
+      <CDBSidebar backgroundColor="black">
         <CDBSidebarHeader prefix={<i className="fa fa-bars"></i>}>
-          <div className='d-flex align-items-center'>
+          <div className="d-flex align-items-center">
             <div>
-              <a href="/" className="text-decoration-none" style={{ color: 'inherit' }}>
-                <img src='/outline_account_circle_white_24dp.png' alt='Hub Logo' className='d-block' style={{ marginRight: '8px' }} />
+              <a
+                href="/"
+                className="text-decoration-none"
+                style={{ color: "inherit" }}
+              >
+                <img
+                  src="/outline_account_circle_white_24dp.png"
+                  alt="Hub Logo"
+                  className="d-block"
+                  style={{ marginRight: "8px" }}
+                />
               </a>
             </div>
             <div className='d-flex flex-column'>
@@ -34,28 +45,46 @@ const Sidebar = () => {
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink to="/" className={({ isActive }) => isActive ? "bg-secondary" : "bg-black"}>
+            <NavLink exact="true" to="/">
               <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact="true" to="/profile" activeclassname="activeClicked">
+            {/* <NavLink exact='true' to="/tables" activeclassname="activeClicked">
+              <CDBSidebarMenuItem icon="table">Tables</CDBSidebarMenuItem>
+            </NavLink> */}
+            <NavLink exact="true" to="/profile">
               <CDBSidebarMenuItem icon="user">Profile</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact="true" to="/analytics" activeclassname="activeClicked">
-              <CDBSidebarMenuItem icon="chart-line">Analytics</CDBSidebarMenuItem>
+            <NavLink
+              exact="true"
+              to="/analytics"
+            >
+              <CDBSidebarMenuItem icon="chart-line">
+                Analytics
+              </CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact="true" to="/documentation" target="_blank" activeclassname="activeClicked">
-              <CDBSidebarMenuItem icon="exclamation-circle">Documentation</CDBSidebarMenuItem>
+
+            <NavLink
+              exact="true"
+              to="/documentation"
+              target="_blank"
+            >
+              <CDBSidebarMenuItem icon="exclamation-circle">
+                Documentation
+              </CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>
         </CDBSidebarContent>
 
-        <CDBSidebarFooter style={{ textAlign: 'center' }} className='border-dark border-top'>
+        <CDBSidebarFooter
+          style={{ textAlign: "center" }}
+          className="border-dark border-top"
+        >
           <div
             style={{
-              padding: '20px 5px',
+              padding: "20px 5px",
             }}
           >
-            <img src='/outline_snowshoeing_white_24dp.png' alt='Image Footer' />
+            <img src="/outline_snowshoeing_white_24dp.png" alt="Image Footer" />
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>
@@ -64,3 +93,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
