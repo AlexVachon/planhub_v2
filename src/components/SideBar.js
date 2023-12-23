@@ -31,31 +31,11 @@ const Sidebar = () => {
                 />
               </a>
             </div>
-            <div className="d-flex flex-column">
-              <span
-                style={{
-                  maxWidth: "100px",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                }}
-              >
-                AlexandreVachon
-              </span>
+            <div className='d-flex flex-column'>
+              <span style={{ maxWidth: '100px', overflow: 'hidden', textOverflow: 'ellipsis' }}>AlexandreVachon</span>
               <a
-                href="/profile"
-                onMouseEnter={(e) => (
-                  (e.target.style.color = "#A9A9A9"),
-                  (e.target.style.textDecoration = "underline")
-                )}
-                onMouseLeave={(e) => (
-                  (e.target.style.color = "#808080"),
-                  (e.target.style.textDecoration = "none")
-                )}
-                style={{
-                  color: "#808080",
-                  fontSize: "8px",
-                  textDecoration: "none",
-                }}
+                href='/profile'
+                className='hover-link'
               >
                 @AlexVachon2000
               </a>
@@ -113,3 +93,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+

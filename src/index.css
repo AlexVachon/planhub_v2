@@ -9,6 +9,16 @@ code {
     monospace;
 }
 
+.hover-link {
+  color: #808080;
+  font-size: 8px;
+  text-decoration: none;
+}
+.hover-link:hover {
+  color: #A9A9A9;
+  text-decoration: underline;
+}
+
 a li div:hover {
   border-bottom: 1px solid white;
   opacity: 0.8;
