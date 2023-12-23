@@ -3,20 +3,20 @@ import Header from "./components/Header";
 import * as Bootstrap from "react-bootstrap";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SideBar from "./components/SideBar";
-import Home from "./components/Home";
+import DashBoard from "./components/DashBoard";
 
 function App() {
   return (
-    <div>
+    <div  style={{ height: "100vh" }}>
       <Router>
-        <div className="d-flex" style={{ height: "100vh" }}>
+        <div className="d-flex">
           <SideBar />
           <div className="d-flex flex-column flex-grow-1">
             <Header />
-            <div className="flex-grow-1 p-3">
+            <div className="flex-grow-1 p-3 m-auto" style={{ width: "100%", height: ""}}>
               <Bootstrap.Container>
                 <Routes>
-                  <Route path="/" Component={Home} />
+                  <Route path="/dashboard/*" Component={DashBoard} />
                   {/* <Route exact='true' path="/profile" Component={}/>
                 <Route exact='true' path="/analytics" Component={}/>
                 <Route exact='true' path="/documentation" Component={}/> */}
