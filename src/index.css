@@ -8,3 +8,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.hover-link {
+  color: #808080;
+  font-size: 8px;
+  text-decoration: none;
+}
+.hover-link:hover {
+  color: #A9A9A9;
+  text-decoration: underline;
+}

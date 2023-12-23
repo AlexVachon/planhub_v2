@@ -22,8 +22,10 @@ const Sidebar = () => {
             </div>
             <div className='d-flex flex-column'>
               <span style={{ maxWidth: '100px', overflow: 'hidden', textOverflow: 'ellipsis' }}>AlexandreVachon</span>
-              <a href='/profile' onMouseEnter={(e) => (e.target.style.color = '#A9A9A9', e.target.style.textDecoration = 'underline')}
-                onMouseLeave={(e) => (e.target.style.color = '#808080', e.target.style.textDecoration = 'none')} style={{ color: '#808080',fontSize: '8px', textDecoration: 'none' }}>
+              <a
+                href='/profile'
+                className='hover-link'
+              >
                 @AlexVachon2000
               </a>
             </div>
@@ -32,21 +34,16 @@ const Sidebar = () => {
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-
-            <NavLink exact='true' to="/" activeclassname="activeClicked">
+            <NavLink to="/" className={({ isActive }) => isActive ? "bg-secondary" : "bg-black"}>
               <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
             </NavLink>
-            {/* <NavLink exact='true' to="/tables" activeclassname="activeClicked">
-              <CDBSidebarMenuItem icon="table">Tables</CDBSidebarMenuItem>
-            </NavLink> */}
-            <NavLink exact='true' to="/profile" activeclassname="activeClicked">
+            <NavLink exact="true" to="/profile" activeclassname="activeClicked">
               <CDBSidebarMenuItem icon="user">Profile</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact='true' to="/analytics" activeclassname="activeClicked">
+            <NavLink exact="true" to="/analytics" activeclassname="activeClicked">
               <CDBSidebarMenuItem icon="chart-line">Analytics</CDBSidebarMenuItem>
             </NavLink>
-
-            <NavLink exact='true' to="/documentation" target="_blank" activeclassname="activeClicked">
+            <NavLink exact="true" to="/documentation" target="_blank" activeclassname="activeClicked">
               <CDBSidebarMenuItem icon="exclamation-circle">Documentation</CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>
