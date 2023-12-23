@@ -8,3 +8,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a li div:hover {
+  border-bottom: 1px solid white;
+  opacity: 0.8;
+}
