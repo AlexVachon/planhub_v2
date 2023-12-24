@@ -2,12 +2,12 @@ import React from "react";
 import * as Bootstrap from "react-bootstrap";
 
 
-const Tables = () => {
+const Boards = () => {
     return(
         <div>
-            MyTables
+            MyBoards
         </div>
     )
 }
 
-export default Tables;
+export default Boards;

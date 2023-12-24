@@ -47,3 +47,52 @@ a:not(.active) li div:hover {
   background-color: #E5E4E2;
 }
 
+#DashBoard ul li:hover{
+  background-color: #E5E4E2;
+}
+
+#create-board{
+  border-radius: 10px;
+  svg{
+    color: #A9A9A9;
+  }
+  &:hover{
+    background-color: #E5E4E2;
+    svg{
+      color: #808080;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #808080;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 6px;
+  background-color: #f1f1f1a6;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #808080 #f1f1f1a6;
+}
+
+*::-moz-scrollbar {
+  width: 12px;
+}
+
+*::-moz-scrollbar-thumb {
+  background-color: #808080;
+  border-radius: 6px;
+}
+
+*::-moz-scrollbar-track {
+  background-color: #f1f1f1a6;
+}
+
