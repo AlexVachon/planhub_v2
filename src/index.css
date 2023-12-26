@@ -51,6 +51,10 @@ a:not(.active) li div:hover {
   background-color: #E5E4E2;
 }
 
+.icon:hover{
+  cursor:pointer;
+}
+
 #create-board{
   border-radius: 10px;
   svg{

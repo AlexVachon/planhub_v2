@@ -23,10 +23,10 @@ const HomePage = () => {
                             <Icon.FaRegStar />
                             <div className="ms-2 text-secondary" style={{ fontSize: "15px" }}>Favorites</div>
                         </div>
-                        <div style={{ overflowY: "scroll", width: "fit-content", maxHeight: "12rem", borderRadius: "10px" }} className="pe-1 border border-end-0 shadow-sm">
+                        <div style={{ overflowY: "scroll", width: "fit-content", maxHeight: "16rem", borderRadius: "10px" }} className="pe-1 border border-end-0 shadow-sm">
                             <ul>
                                 {[...Array(6)].map((_, index) => (
-                                    <li className="nav-link mt-2" style={{ width: "fit-content", borderRadius: "10px" }} key={`item-${index}`}>
+                                    <li className="nav-link mt-1" style={{ width: "fit-content", borderRadius: "10px" }} key={`item-${index}`}>
                                         <div className="d-flex align-items-center p-2">
                                             <div style={{ width: "16rem" }}>
                                                 <a href="#toInfinityAndBeyond" className="text-decoration-none d-flex flex-row align-items-center" style={{ color: "inherit" }}>
@@ -37,14 +37,17 @@ const HomePage = () => {
                                                     </span>
                                                 </a>
                                             </div>
-                                            {/* Ameliorer la gestion du hover */}
-                                            <Icon.FaStar style={{ color: "#FFBF00" }} className="ms-2" onMouseEnter={(e) => {
-                                                {/* <Icon.FaRegStar/> */ }
-                                                e.currentTarget.innerHTML = '<path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path>'
-                                            }} onMouseLeave={(e) => {
-                                                {/* <Icon.FaStar/> */ }
-                                                e.currentTarget.innerHTML = '<path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>'
-                                            }} />
+                                            <div className="icon">
+                                                {/* Ameliorer la gestion du hover */}
+                                                <Icon.FaStar style={{ color: "#FFBF00" }} className="ms-2" onMouseEnter={(e) => {
+                                                    {/* <Icon.FaRegStar/> */ }
+                                                    e.currentTarget.innerHTML = '<path d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path>'
+
+                                                }} onMouseLeave={(e) => {
+                                                    {/* <Icon.FaStar/> */ }
+                                                    e.currentTarget.innerHTML = '<path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>'
+                                                }} />
+                                            </div>
                                         </div>
                                     </li>
                                 ))}
