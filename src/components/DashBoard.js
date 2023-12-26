@@ -21,7 +21,7 @@ const DashBoard = () => (
                 <Bootstrap.Nav bg="inherit" className="bg-gradient text-decoration-none">
                   <Bootstrap.Container>
                     <Bootstrap.NavItem>
-                      <NavLink className="nav-link text-body" to="/dashboard/info">
+                      <NavLink className="nav-link text-body" to="/dashboard/home">
                         <div className="d-flex justify-content-start align-items-center">
                             <Icon.FaInfoCircle />
                           <div className="ms-3">Info</div>
@@ -51,7 +51,7 @@ const DashBoard = () => (
           </div>
           <div id="dashboardContent" className="m-auto">
             <Routes>
-              <Route path="/info" Component={HomePage} />
+              <Route path="/home" Component={HomePage} />
               <Route path="/tables" Component={Boards} />
               <Route path="/marked" Component={Favorites} />
             </Routes>

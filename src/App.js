@@ -17,7 +17,7 @@ function App() {
                 <Routes>
                   <Route exact="true" path="/" element={<Navigate to="/dashboard" />} />
                   <Route exact="true" path="/dashboard/*" Component={DashBoard} />
-                  <Route exact="true" path="/dashboard" element={<Navigate to="/dashboard/info" />} />
+                  <Route exact="true" path="/dashboard" element={<Navigate to="/dashboard/home" />} />
                   <Route exact="true" path="*" element={<Navigate to="/dashboard" />} /> {/* IF route not found redirects to /dashboard/ */}
                 </Routes>
               </Bootstrap.Container>
