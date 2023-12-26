@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -7,9 +7,24 @@ import {
   CDBSidebarMenu,
   CDBSidebarMenuItem,
 } from "cdbreact";
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom"
+import * as bootstrap from "bootstrap";
 
 const Sidebar = () => {
+  useEffect(() => {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    tooltipTriggerList.forEach((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
+
+    return () => {
+      tooltipTriggerList.forEach((tooltipTriggerEl) => {
+        const tooltip = bootstrap.Tooltip.getInstance(tooltipTriggerEl);
+        if (tooltip) {
+          tooltip.dispose();
+        }
+      });
+    };
+  }, []);
+
   return (
     <div
       style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}
@@ -45,18 +60,19 @@ const Sidebar = () => {
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink exact="true" to="/dashboard">
+            <NavLink exact="true" to="/dashboard" data-bs-toggle="tooltip" data-bs-title="Dashboard" data-bs-placement="right">
               <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
             </NavLink>
             {/* <NavLink exact='true' to="/tables" activeclassname="activeClicked">
               <CDBSidebarMenuItem icon="table">Tables</CDBSidebarMenuItem>
             </NavLink> */}
-            <NavLink exact="true" to="/profile">
+            <NavLink exact="true" to="/profile" data-bs-toggle="tooltip" data-bs-title="Profile" data-bs-placement="right">
               <CDBSidebarMenuItem icon="user">Profile</CDBSidebarMenuItem>
             </NavLink>
             <NavLink
               exact="true"
               to="/analytics"
+              data-bs-toggle="tooltip" data-bs-title="Analytics" data-bs-placement="right"
             >
               <CDBSidebarMenuItem icon="chart-line">
                 Analytics
@@ -67,6 +83,7 @@ const Sidebar = () => {
               exact="true"
               to="/documentation"
               target="_blank"
+              data-bs-toggle="tooltip" data-bs-title="Documentation" data-bs-placement="right"
             >
               <CDBSidebarMenuItem icon="exclamation-circle">
                 Documentation
