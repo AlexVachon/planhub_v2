@@ -64,6 +64,10 @@ a:not(.active) li div:hover {
   }
 }
 
+#background-picker li:hover{
+  opacity: 0.85;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
