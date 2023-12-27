@@ -13,7 +13,7 @@ function App() {
         <div className="d-flex">
           <SideBar />
           <div className="d-flex flex-column flex-grow-1">
-            <header className="bg-body-tertiary shadow-sm p-4 text-center w-100" >
+            <header className="bg-body-tertiary shadow-sm p-3 text-center w-100" >
               <Bootstrap.Nav  style={{ position: "relative", left: "95%" }} >
                 <Bootstrap.NavItem id="logout-btn">
                   <Bootstrap.NavLink className="text-body btn btn-outline-secondary shadow-sm">
