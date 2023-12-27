@@ -74,11 +74,6 @@ a:not(.active) li div:hover {
     color: white;
   }
 }
-#logout-btn:hover{
-  svg{
-    color: #E5E4E2;
-  }
-}
 
 ::-webkit-scrollbar {
   width: 10px;

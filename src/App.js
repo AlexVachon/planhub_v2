@@ -1,18 +1,16 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 
 import * as Bootstrap from "react-bootstrap";
-import * as bootstrap from "bootstrap";
+import * as bootstrap from "bootstrap"
 
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 
-import Header from "./components/Header";
 import SideBar from "./components/SideBar";
 import DashBoard from "./components/DashBoard";
 
 import * as Icon from "react-icons/fa"
 
 function App() {
-
   useEffect(() => {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
     tooltipTriggerList.forEach((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
@@ -26,21 +24,16 @@ function App() {
       });
     };
   }, []);
-
   return (
     <div style={{ height: "100vh" }} className="p-0 m-0">
       <Router>
         <div className="d-flex">
           <SideBar />
           <div className="d-flex flex-column flex-grow-1">
-            <header className="bg-body-tertiary shadow-sm p-3 text-center w-100" >
-              <Bootstrap.Nav  style={{ position: "relative", left: "95%" }} >
-                <Bootstrap.NavItem id="logout-btn">
-                  <Bootstrap.NavLink className="text-body btn btn-outline-secondary shadow-sm" data-bs-toggle="tooltip" data-bs-title="Log Out" data-bs-placement="bottom">
-                      <Icon.FaSignOutAlt />
-                  </Bootstrap.NavLink>
-                </Bootstrap.NavItem>
-              </Bootstrap.Nav>
+            <header className="bg-body-tertiary bg-gradient shadow-sm p-3 text-center w-100" >
+                <button className="btn btn-outline-secondary shadow-sm" style={{ position: "relative", left: "47.5%" }}>
+                  <Icon.FaSignOutAlt />
+                </button>
 
             </header>
             <div className="mx-auto" style={{ overflowY: "auto", overflowX: "hidden", maxHeight: "80vh", marginTop: "5rem" }}>
