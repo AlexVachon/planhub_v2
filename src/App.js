@@ -33,7 +33,7 @@ function App() {
             <header className="bg-body-tertiary bg-gradient shadow-sm p-3 text-center w-100" >
               <button className="btn btn-outline-dark shadow-sm" style={{ position: "relative", left: "45%" }} data-bs-toggle="tooltip" data-bs-title="Log Out" data-bs-placement="bottom" id="logout-btn">
                 <Icon.FaSignOutAlt />
-                <span className="ms-1">
+                <span className="ms-1 p-1">
                   Log Out
                 </span>
               </button>
