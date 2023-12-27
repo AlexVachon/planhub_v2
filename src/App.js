@@ -1,12 +1,32 @@
-import React from "react";
-import Header from "./components/Header";
+import React, {useEffect} from "react";
+
 import * as Bootstrap from "react-bootstrap";
+import * as bootstrap from "bootstrap";
+
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+
+import Header from "./components/Header";
 import SideBar from "./components/SideBar";
 import DashBoard from "./components/DashBoard";
+
 import * as Icon from "react-icons/fa"
 
 function App() {
+
+  useEffect(() => {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    tooltipTriggerList.forEach((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
+
+    return () => {
+      tooltipTriggerList.forEach((tooltipTriggerEl) => {
+        const tooltip = bootstrap.Tooltip.getInstance(tooltipTriggerEl);
+        if (tooltip) {
+          tooltip.dispose();
+        }
+      });
+    };
+  }, []);
+
   return (
     <div style={{ height: "100vh" }} className="p-0 m-0">
       <Router>
@@ -16,7 +36,7 @@ function App() {
             <header className="bg-body-tertiary shadow-sm p-3 text-center w-100" >
               <Bootstrap.Nav  style={{ position: "relative", left: "95%" }} >
                 <Bootstrap.NavItem id="logout-btn">
-                  <Bootstrap.NavLink className="text-body btn btn-outline-secondary shadow-sm">
+                  <Bootstrap.NavLink className="text-body btn btn-outline-secondary shadow-sm" data-bs-toggle="tooltip" data-bs-title="Log Out" data-bs-placement="bottom">
                       <Icon.FaSignOutAlt />
                   </Bootstrap.NavLink>
                 </Bootstrap.NavItem>
