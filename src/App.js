@@ -7,12 +7,12 @@ import DashBoard from "./components/DashBoard";
 
 function App() {
   return (
-    <div style={{ height: "100vh" }}>
+    <div style={{ height: "100vh" }} className="p-0 m-0">
       <Router>
         <div className="d-flex">
           <SideBar />
           <div className="d-flex flex-column flex-grow-1">
-            <div className="p-3">
+            <div className="mx-auto" style={{ overflowY: "auto",overflowX: "hidden", maxHeight: "80vh", marginTop: "5rem"}}>
               <Bootstrap.Container>
                 <Routes>
                   <Route exact="true" path="/" element={<Navigate to="/dashboard" />} />

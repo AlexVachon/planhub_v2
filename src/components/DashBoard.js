@@ -14,8 +14,8 @@ const DashBoard = () => (
   <div id="DashBoard">
     <div className="p-1 me-2">
       <div>
-        <div className="d-flex flex-row justify-content-between">
-          <div>
+        <div className="row">
+          <div className="col-lg-3 mb-3">
             <div style={{ width: "16rem", borderRadius: "10px" }} className="py-1 shadow-sm">
               <div className="my-4 me-2">
                 <Bootstrap.Nav bg="inherit" className="bg-gradient text-decoration-none">
@@ -49,18 +49,16 @@ const DashBoard = () => (
               </div>
             </div>
           </div>
-          <div id="dashboardContent" className="m-auto">
+          <div id="dashboardContent" className="m-auto col-lg-9" >
             <Routes>
-              <Route path="/home" Component={HomePage} />
+              <Route path="/home" Component={HomePage}/>
               <Route path="/tables" Component={Boards} />
               <Route path="/marked" Component={Favorites} />
             </Routes>
           </div>
         </div>
-
       </div>
     </div>
-
   </div>
 );
 
