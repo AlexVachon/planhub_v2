@@ -31,7 +31,7 @@ function App() {
           <SideBar />
           <div className="d-flex flex-column flex-grow-1">
             <header className="bg-body-tertiary bg-gradient shadow-sm p-3 text-center w-100" >
-              <button className="btn btn-outline-dark shadow-sm" style={{ position: "relative", left: "45%" }} data-bs-toggle="tooltip" data-bs-title="Log Out" data-bs-placement="bottom">
+              <button className="btn btn-outline-dark shadow-sm" style={{ position: "relative", left: "45%" }} data-bs-toggle="tooltip" data-bs-title="Log Out" data-bs-placement="bottom" id="logout-btn">
                 <Icon.FaSignOutAlt />
                 <span className="ms-1">
                   Log Out
