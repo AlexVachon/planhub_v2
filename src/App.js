@@ -36,7 +36,7 @@ function App() {
                 </button>
 
             </header>
-            <div className="mx-auto" style={{ overflowY: "auto", overflowX: "hidden", maxHeight: "80vh", marginTop: "5rem" }}>
+            <div className="mx-auto w-100" style={{ overflowY: "auto", overflowX: "hidden", maxHeight: "80vh", marginTop: "5rem" }}>
               <Bootstrap.Container>
                 <Routes>
                   <Route exact="true" path="/" element={<Navigate to="/dashboard" />} />
