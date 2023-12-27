@@ -1,8 +1,28 @@
 import React, { useState } from "react";
 import * as Icon from "react-icons/fa";
-import * as Bootstrap from "react-bootstrap";
 
 const HomePage = () => {
+
+    const [selectedBackgroundIndex, setSelectedBackgroundIndex] = useState(0);
+
+    const handleItemClick = (index) => {
+        setSelectedBackgroundIndex(index);
+        const backgroundChoiceElement = document.getElementById("background-choice");
+        const hiddenInput = document.getElementById("selected-background-index");
+
+        if (backgroundChoiceElement && hiddenInput) {
+            backgroundChoiceElement.style.backgroundImage = `url(${backgroundImages[index]})`;
+            hiddenInput.value = index.toString();
+        }
+    };
+
+    const backgroundImages = [
+        "https://images.unsplash.com/photo-1703016445632-240f009aa738?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDF8MzE3MDk5fHx8fHwyfHwxNzAzNTkzMDE5fA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=400",
+        "https://images.unsplash.com/photo-1703354445674-7c39f58a37ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDJ8MzE3MDk5fHx8fHwyfHwxNzAzNTkzMDE5fA&ixlib=rb-4.0.3&q=80&w=400",
+        "https://images.unsplash.com/photo-1703190530042-e103213a117a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDN8MzE3MDk5fHx8fHwyfHwxNzAzNTkzMDE5fA&ixlib=rb-4.0.3&q=80&w=400",
+        "https://images.unsplash.com/photo-1703328742708-d547eed7a0f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDR8MzE3MDk5fHx8fHwyfHwxNzAzNTkzMDE5fA&ixlib=rb-4.0.3&q=80&w=400"
+
+    ]
 
     return (
         <div>
@@ -78,43 +98,56 @@ const HomePage = () => {
                                         </div>
                                         <div className="modal-body">
                                             <div className="my-4 mx-auto w-50">
-                                                <div className="m-auto d-flex align-items-center justify-content-center" style={{ backgroundPosition: "center", backgroundSize: "cover", backgroundColor: "rgb(0, 121, 191)", backgroundImage: "url(https://images.unsplash.com/photo-1703016445632-240f009aa738?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDF8MzE3MDk5fHx8fHwyfHwxNzAzNTkzMDE5fA&ixlib=rb-4.0.3&q=80&w=400&quot)" }}>
+                                                <div id="background-choice" className="m-auto d-flex align-items-center justify-content-center" style={{ backgroundPosition: "center", backgroundSize: "cover", backgroundColor: "rgb(0, 121, 191)", backgroundImage: `url(${backgroundImages[selectedBackgroundIndex]})`, borderRadius: "5px" }}>
                                                     <img src="https://trello.com/assets/14cda5dc635d1f13bc48.svg" alt="" role="presentation" className="p-2 w-100" />
                                                 </div>
-
                                             </div>
                                             <div>
                                                 <form>
-
                                                     <div className="mb-3 ">
                                                         <div>
-                                                            <label className="form-label" htmlFor="background-picker">Backgrounds</label>
+                                                            <label className="form-label" htmlFor="selected-background-index">Backgrounds</label>
                                                         </div>
                                                         <div>
-                                                            <ul id="background-picker">
-                                                                <li className="d-inline">
-                                                                    <button className="" type="button" title="Image personnalisée" style={{ backgroundSize: "cover", backgroundImage: "url(https://images.unsplash.com/photo-1703016445632-240f009aa738?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDF8MzE3MDk5fHx8fHwyfHwxNzAzNTkzMDE5fA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=400&quot)" }}>
-                                                                        <span>
+                                                            <ul id="background-picker" className="d-flex my-auto p-0 justify-content-center">
+                                                                {backgroundImages.map((_, index) => (
+                                                                    <li className="d-inline mx-1" key={`background-${index}`}>
+                                                                        <button
+                                                                            type="button"
+                                                                            title="Custom Image"
+                                                                            style={{ backgroundSize: "cover", backgroundImage: `url(${backgroundImages[index]})`, borderRadius: "5px" }}
+                                                                            onClick={() => handleItemClick(index)}>
                                                                             <span>
-                                                                                <svg width="24" height="24" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                                                    <path d="M6.73534 12.3223C6.36105 11.9162 5.72841 11.8904 5.3223 12.2647C4.91619 12.639 4.89039 13.2716 5.26467 13.6777L8.87678 17.597C9.41431 18.1231 10.2145 18.1231 10.7111 17.6264C10.7724 17.5662 10.7724 17.5662 11.0754 17.2683C11.3699 16.9785 11.6981 16.6556 12.0516 16.3075C13.0614 15.313 14.0713 14.3169 15.014 13.3848L15.0543 13.3449C16.7291 11.6887 18.0004 10.4236 18.712 9.70223C19.0998 9.30904 19.0954 8.67589 18.7022 8.28805C18.309 7.90022 17.6759 7.90457 17.2881 8.29777C16.5843 9.01131 15.3169 10.2724 13.648 11.9228L13.6077 11.9626C12.6662 12.8937 11.6572 13.8889 10.6483 14.8825C10.3578 15.1685 10.0845 15.4375 9.83288 15.6851L6.73534 12.3223Z" fill="currentColor">
-                                                                                    </path>
+                                                                                <svg
+                                                                                    width="60"
+                                                                                    height="42"
+                                                                                    role="presentation"
+                                                                                    focusable="false"
+                                                                                    viewBox="0 0 24 24"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                >
+                                                                                    {/* Votre contenu SVG existant ... */}
+                                                                                    {/* Ajoutez le nouveau path ici */}
+                                                                                    {index === selectedBackgroundIndex && (
+                                                                                        <path
+                                                                                            d="M6.73534 12.3223C6.36105 11.9162 5.72841 11.8904 5.3223 12.2647C4.91619 12.639 4.89039 13.2716 5.26467 13.6777L8.87678 17.597C9.41431 18.1231 10.2145 18.1231 10.7111 17.6264C10.7724 17.5662 10.7724 17.5662 11.0754 17.2683C11.3699 16.9785 11.6981 16.6556 12.0516 16.3075C13.0614 15.313 14.0713 14.3169 15.014 13.3848L15.0543 13.3449C16.7291 11.6887 18.0004 10.4236 18.712 9.70223C19.0998 9.30904 19.0954 8.67589 18.7022 8.28805C18.309 7.90022 17.6759 7.90457 17.2881 8.29777C16.5843 9.01131 15.3169 10.2724 13.648 11.9228L13.6077 11.9626C12.6662 12.8937 11.6572 13.8889 10.6483 14.8825C10.3578 15.1685 10.0845 15.4375 9.83288 15.6851L6.73534 12.3223Z"
+                                                                                            fill="#A9A9A9"
+                                                                                        />
+                                                                                    )}
                                                                                 </svg>
                                                                             </span>
-                                                                        </span>
-                                                                    </button>
-                                                                </li>
+                                                                        </button>
+                                                                    </li>
+                                                                ))}
+                                                                <input
+                                                                    type="hidden"
+                                                                    id="selected-background-index"
+                                                                    name="selectedBackgroundIndex"
+                                                                    value={selectedBackgroundIndex}
+                                                                />
                                                             </ul>
                                                         </div>
                                                     </div>
-                                                    {/* <div className="mb-3 w-75 mx-auto">
-                                                        <select className="form-select" id="backgroundOptions">
-                                                            <option value="">Sélectionnez un arrière-plan</option>
-                                                            <option value="background1">Simple blue</option>
-                                                            <option value="background2">Simple green</option>
-                                                            <option value="background3">Simple red</option>
-                                                        </select>
-                                                    </div> */}
                                                 </form>
                                             </div>
                                         </div>

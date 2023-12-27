@@ -69,9 +69,9 @@ a:not(.active) li div:hover {
 }
 
 #background-picker li:hover{
-  opacity: 0.85;
+  opacity: 1.5;
   svg{
-    color: #E5E4E2;
+    color: white;
   }
 }
 
