@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import * as Bootstrap from "react-bootstrap";
 import * as bootstrap from "bootstrap"
@@ -11,19 +11,7 @@ import DashBoard from "./components/DashBoard";
 import * as Icon from "react-icons/fa"
 
 function App() {
-  useEffect(() => {
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    tooltipTriggerList.forEach((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
-
-    return () => {
-      tooltipTriggerList.forEach((tooltipTriggerEl) => {
-        const tooltip = bootstrap.Tooltip.getInstance(tooltipTriggerEl);
-        if (tooltip) {
-          tooltip.dispose();
-        }
-      });
-    };
-  }, []);
+  
   return (
     <div style={{ height: "100vh" }} className="p-0 m-0">
       <Router>
@@ -31,7 +19,7 @@ function App() {
           <SideBar />
           <div className="d-flex flex-column flex-grow-1">
             <header className="bg-body-tertiary bg-gradient shadow-sm p-3 text-center w-100" >
-              <button className="btn btn-outline-dark shadow-sm" style={{ position: "relative", left: "45%" }} data-bs-toggle="tooltip" data-bs-title="Log Out" data-bs-placement="bottom" id="logout-btn">
+              <button className="btn btn-outline-dark shadow-sm" style={{ position: "relative", left: "45%" }} id="logout-btn">
                 <Icon.FaSignOutAlt />
                 <span className="ms-1 p-1">
                   Log Out
