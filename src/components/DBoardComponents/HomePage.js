@@ -90,14 +90,14 @@ const HomePage = () => {
                         </div>
                         <div>
                             <div className="modal fade" id="addBoard" aria-labelledby="addBoardLabel" tabIndex="-1" aria-hidden="true" style={{ display: "none" }}>
-                                <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable" style={{width: "24rem"}}>
                                     <div className="modal-content">
                                         <div className="modal-header">
                                             <h1 className="modal-title fs-5" id="exampleModalToggleLabel">Create your board</h1>
                                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div className="modal-body">
-                                            <div className="my-4 mx-auto w-50">
+                                            <div className="my-4 mx-auto w-75">
                                                 <div id="background-choice" className="m-auto d-flex align-items-center justify-content-center" style={{ backgroundPosition: "center", backgroundSize: "cover", backgroundColor: "rgb(0, 121, 191)", backgroundImage: `url(${backgroundImages[selectedBackgroundIndex]})`, borderRadius: "5px" }}>
                                                     <img src="https://trello.com/assets/14cda5dc635d1f13bc48.svg" alt="" role="presentation" className="p-2 w-100" />
                                                 </div>
