@@ -60,19 +60,19 @@ const Sidebar = () => {
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink exact="true" to="/dashboard" data-bs-toggle="tooltip" data-bs-title="Dashboard" data-bs-placement="right">
+            <NavLink exact="true" to="/dashboard" data-bs-toggle="tooltip" data-bs-title="Dashboard" data-bs-placement="right" data-bs-container='body'>
               <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
             </NavLink>
             {/* <NavLink exact='true' to="/tables" activeclassname="activeClicked">
               <CDBSidebarMenuItem icon="table">Tables</CDBSidebarMenuItem>
             </NavLink> */}
-            <NavLink exact="true" to="/profile" data-bs-toggle="tooltip" data-bs-title="Profile" data-bs-placement="right">
+            <NavLink exact="true" to="/profile" data-bs-toggle="tooltip" data-bs-title="Profile" data-bs-placement="right" data-bs-container='body'>
               <CDBSidebarMenuItem icon="user">Profile</CDBSidebarMenuItem>
             </NavLink>
             <NavLink
               exact="true"
               to="/analytics"
-              data-bs-toggle="tooltip" data-bs-title="Analytics" data-bs-placement="right"
+              data-bs-toggle="tooltip" data-bs-title="Analytics" data-bs-placement="right" data-bs-container='body'
             >
               <CDBSidebarMenuItem icon="chart-line">
                 Analytics
@@ -83,7 +83,7 @@ const Sidebar = () => {
               exact="true"
               to="/documentation"
               target="_blank"
-              data-bs-toggle="tooltip" data-bs-title="Documentation" data-bs-placement="right"
+              data-bs-toggle="tooltip" data-bs-title="Documentation" data-bs-placement="right" data-bs-container='body'
             >
               <CDBSidebarMenuItem icon="exclamation-circle">
                 Documentation
@@ -104,8 +104,8 @@ const Sidebar = () => {
             <img src="/outline_snowshoeing_white_24dp.png" alt="Image Footer" />
           </div>
         </CDBSidebarFooter>
-      </CDBSidebar>
-    </div>
+      </CDBSidebar >
+    </div >
   );
 };
 
