@@ -49,13 +49,13 @@ const HomePage = () => {
         }),
     };
 
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOption, setSelectedOption] = useState(false);
 
     const handleSelectChange = (selectedOption) => {
         setSelectedOption(selectedOption);
     };
 
-    const isInvalid = !selectedOption || selectedOption.value === null;
+    const isInvalid = !selectedOption || selectedOption.value === -1;
 
     return (
         <div>
@@ -203,13 +203,13 @@ const HomePage = () => {
                                                             name="workspace"
                                                             id="workspace"
                                                             options={[
-                                                                { label: '---', value: null },
+                                                                { label: '---', value: -1 },
                                                                 { label: 'WorkSpace 1', value: 1 },
                                                                 { label: 'WorkSpace 2', value: 2 },
                                                                 { label: 'WorkSpace 3', value: 3 },
                                                                 { label: 'WorkSpace 4', value: 4 },
                                                             ].map(({ label, value }) => ({ label, value }))}
-                                                            defaultValue={{ label: '---', value: null }}
+                                                            defaultValue={{ label: '---', value: -1 }}
                                                             placeholder="Select your WorkSpace"
                                                             styles={customStyles}
                                                             onChange={handleSelectChange}
