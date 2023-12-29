@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import * as Icon from "react-icons/fa";
+import Select from "react-select";
 
 const HomePage = () => {
 
@@ -23,6 +24,38 @@ const HomePage = () => {
         "https://images.unsplash.com/photo-1703328742708-d547eed7a0f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDR8MzE3MDk5fHx8fHwyfHwxNzAzNTkzMDE5fA&ixlib=rb-4.0.3&q=80&w=400"
 
     ]
+
+    const [boardTitle, setBoardTitle] = useState('');
+    const [isValid, setIsValid] = useState(false);
+
+    const handleInputChange = (e) => {
+        const inputValue = e.target.value;
+        setBoardTitle(inputValue);
+
+        const isValidInput = inputValue.trim() !== '';
+
+        setIsValid(isValidInput);
+    };
+
+
+    const customStyles = {
+        option: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.isSelected ? 'rgba(184, 221, 247, 0.25)' : 'white',
+            color: state.isSelected ? '#0047AB' : '',
+            ':hover': {
+                backgroundColor: '#E5E4E2',
+            },
+        }),
+    };
+
+    const [selectedOption, setSelectedOption] = useState(null);
+
+    const handleSelectChange = (selectedOption) => {
+        setSelectedOption(selectedOption);
+    };
+
+    const isInvalid = !selectedOption || selectedOption.value === null;
 
     return (
         <div>
@@ -90,7 +123,7 @@ const HomePage = () => {
                         </div>
                         <div>
                             <div className="modal fade" id="addBoard" aria-labelledby="addBoardLabel" tabIndex="-1" aria-hidden="true" style={{ display: "none" }}>
-                                <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable" style={{width: "24rem"}}>
+                                <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable" style={{ width: "24rem" }}>
                                     <div className="modal-content">
                                         <div className="modal-header">
                                             <h1 className="modal-title fs-5" id="exampleModalToggleLabel">Create your board</h1>
@@ -104,7 +137,7 @@ const HomePage = () => {
                                             </div>
                                             <div>
                                                 <form>
-                                                    <div className="mb-3 ">
+                                                    <div className="mb-3">
                                                         <div>
                                                             <label className="form-label" htmlFor="selected-background-index">Backgrounds</label>
                                                         </div>
@@ -147,6 +180,48 @@ const HomePage = () => {
                                                                 />
                                                             </ul>
                                                         </div>
+                                                    </div>
+                                                    <div className="mb-3">
+                                                        <label htmlFor="board-title" className="form-label">Board's Tile</label>
+                                                        <input type="text" name="board-title" id="board-title" className={`form-control ${isValid ? '' : 'is-invalid'}`}
+                                                            value={boardTitle}
+                                                            onChange={handleInputChange}
+                                                            required />
+                                                        <div className="invalid-feedback">
+                                                            <span>
+                                                                <Icon.FaHandSpock className="me-2" style={{ color: "#FFBF00" }} />
+                                                                <span className="text-dark">
+                                                                    The board must have a title
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="mb-3">
+                                                        <label htmlFor="workspace">Work Space</label>
+                                                        <Select
+                                                            className={`mt-2 ${isInvalid ? 'is-invalid' : ''}`}
+                                                            name="workspace"
+                                                            id="workspace"
+                                                            options={[
+                                                                { label: '---', value: null },
+                                                                { label: 'WorkSpace 1', value: 1 },
+                                                                { label: 'WorkSpace 2', value: 2 },
+                                                                { label: 'WorkSpace 3', value: 3 },
+                                                                { label: 'WorkSpace 4', value: 4 },
+                                                            ].map(({ label, value }) => ({ label, value }))}
+                                                            defaultValue={{ label: '---', value: null }}
+                                                            placeholder="Select your WorkSpace"
+                                                            styles={customStyles}
+                                                            onChange={handleSelectChange}
+                                                        />
+                                                        {isInvalid && (
+                                                            <div className="invalid-feedback">
+                                                                <span>
+                                                                    <Icon.FaExclamationCircle className="me-2 text-danger" />
+                                                                    <span className="text-dark">Please select a valid work space</span>
+                                                                </span>
+                                                            </div>
+                                                        )}
                                                     </div>
                                                 </form>
                                             </div>
