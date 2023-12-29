@@ -18,7 +18,7 @@ function App() {
           <SideBar />
           <div className="d-flex flex-column flex-grow-1">
             <header className="bg-body-tertiary bg-gradient shadow-sm p-1 text-center" >
-              <button className="btn btn-outline-dark shadow-sm me-3" style={{ float: "right"}} id="logout-btn">
+              <button className="btn btn-outline-dark shadow-sm me-3 bg-gradient" style={{ float: "right" }} id="logout-btn">
                 <Icon.FaSignOutAlt />
                 <span className="p-1">
                   Log Out
