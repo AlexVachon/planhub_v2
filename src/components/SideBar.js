@@ -10,6 +10,8 @@ import {
 import { NavLink } from "react-router-dom"
 import * as bootstrap from "bootstrap";
 
+import * as Icon from "react-icons/fa"
+
 const Sidebar = () => {
   useEffect(() => {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
@@ -29,7 +31,7 @@ const Sidebar = () => {
     <div
       style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}
     >
-      <CDBSidebar backgroundColor="black">
+      <CDBSidebar backgroundColor="#28282B">
         <CDBSidebarHeader prefix={<i className="fa fa-bars"></i>}>
           <div className="d-flex align-items-center">
             <div>
@@ -38,8 +40,7 @@ const Sidebar = () => {
                 className="text-decoration-none"
                 style={{ color: "inherit" }}
               >
-                <img
-                  src="/outline_account_circle_white_24dp.png"
+                <Icon.FaUserCircle
                   alt="Hub Logo"
                   className="d-block"
                   style={{ marginRight: "8px" }}
@@ -101,7 +102,7 @@ const Sidebar = () => {
               padding: "20px 5px",
             }}
           >
-            <img src="/outline_snowshoeing_white_24dp.png" alt="Image Footer" />
+            <Icon.FaBed alt="Image Footer"/>
           </div>
         </CDBSidebarFooter>
       </CDBSidebar >
