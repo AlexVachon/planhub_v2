@@ -35,6 +35,15 @@ a:not(.active) li div:hover {
   opacity: 0.8;
 }
 
+#profile-pic:hover{
+  border: 2.5px solid rgb(145, 145, 145);
+  border-radius: 100%;
+}
+#logout-btn:hover{
+  span{
+    text-decoration: underline;
+  }
+}
 #DashBoard .nav-item .active {
   background-color: rgba(184, 221, 247, 0.25);
   div {

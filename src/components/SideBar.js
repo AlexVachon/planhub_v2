@@ -40,9 +40,10 @@ const Sidebar = () => {
                 className="text-decoration-none"
                 style={{ color: "inherit" }}
               >
-                <Icon.FaUserCircle
+                <Icon.FaUserCircle id="profile-pic"
                   alt="Hub Logo"
                   className="d-block"
+                  size={30}
                   style={{ marginRight: "8px" }}
                 />
               </a>

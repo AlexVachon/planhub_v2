@@ -1,7 +1,6 @@
-import React, {useEffect} from "react";
+import React from "react";
 
 import * as Bootstrap from "react-bootstrap";
-import * as bootstrap from "bootstrap"
 
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 
@@ -12,20 +11,6 @@ import * as Icon from "react-icons/fa"
 
 function App() {
 
-  useEffect(() => {
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    tooltipTriggerList.forEach((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
-
-    return () => {
-      tooltipTriggerList.forEach((tooltipTriggerEl) => {
-        const tooltip = bootstrap.Tooltip.getInstance(tooltipTriggerEl);
-        if (tooltip) {
-          tooltip.dispose();
-        }
-      });
-    };
-  }, []);
-
   return (
     <div style={{ height: "100vh" }} className="p-0 m-0">
       <Router>
@@ -33,8 +18,11 @@ function App() {
           <SideBar />
           <div className="d-flex flex-column flex-grow-1">
             <header className="bg-body-tertiary bg-gradient shadow-sm p-1 text-center" >
-              <button className="btn btn-outline-dark shadow-sm me-3" style={{ float: "right"}} id="logout-btn" data-bs-toggle="tooltip" data-bs-title="Log Out" data-bs-placement="bottom" data-bs-container='body'>
+              <button className="btn btn-outline-dark shadow-sm me-3" style={{ float: "right"}} id="logout-btn">
                 <Icon.FaSignOutAlt />
+                <span className="p-1">
+                  Log Out
+                </span>
               </button>
 
             </header>
