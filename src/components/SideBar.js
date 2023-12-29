@@ -31,7 +31,7 @@ const Sidebar = () => {
     <div
       style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}
     >
-      <CDBSidebar backgroundColor="#28282B">
+      <CDBSidebar backgroundColor="black" className="bg-gradient">
         <CDBSidebarHeader prefix={<i className="fa fa-bars"></i>}>
           <div className="d-flex align-items-center">
             <div>
