@@ -24,7 +24,6 @@ a, a li, a li div{
 }
 
 a:not(.active) li div:hover {
-  padding: 5px;
   background-color: #343434;
   span.item-content::before{
     content: ">";
@@ -72,13 +71,6 @@ a:not(.active) li div:hover {
   opacity: 1.5;
   svg{
     color: white;
-  }
-}
-
-#logout-btn:hover{
-  span{
-    text-decoration: underline;
-    color: inherit;
   }
 }
 
