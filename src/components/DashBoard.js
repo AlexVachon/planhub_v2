@@ -47,7 +47,7 @@ const DashBoard = () => (
           </div>
         </div>
       </div>
-      <div id="dashboardContent" className="m-auto col-lg-9" >
+      <div id="dashboardContent" className="m-auto col-lg-9" style={{width: "fit-content"}} >
         <Routes>
           <Route path="/home" Component={HomePage} />
           <Route path="/tables" Component={Boards} />
