@@ -13,9 +13,9 @@ import Favorites from "./DBoardComponents/Favorites";
 const DashBoard = () => (
   <div id="DashBoard">
     <div className="row">
-      <div className="col-lg-3 mb-3">
+      <div className="col-lg-3 mb-3 mx-auto">
         <div style={{ width: "16rem", borderRadius: "10px" }} className="py-1 shadow-sm">
-          <div className="my-4 me-2">
+          <div className="my-4 mx-2">
             <Bootstrap.Nav bg="inherit" className="bg-gradient text-decoration-none">
               <Bootstrap.Container>
                 <Bootstrap.NavItem>

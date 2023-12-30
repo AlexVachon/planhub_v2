@@ -1,10 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as Icon from "react-icons/fa";
-import Select from "react-select";
+import Select, { components } from "react-select";
+
+const { SingleValue } = components;
+
+const FAVORITES_COUNT = 6;
 
 const HomePage = () => {
-
     const [selectedBackgroundIndex, setSelectedBackgroundIndex] = useState(0);
+    const [boardTitle, setBoardTitle] = useState("");
+    const [selectedWorkspace, setSelectedWorkspace] = useState(null);
+    const [selectedVisibility, setSelectedVisibility] = useState(true);
+    const [visibilityDefaultValue, setVisibilityDefaultValue] = useState({
+        label: "WorkSpace",
+        describe: `All members of ${selectedWorkspace ? selectedWorkspace.label : "the choosed workspace"} can consult and edit this board`,
+        img: <Icon.FaUserFriends />,
+        value: "workspace"
+    });
+    const [isValid, setIsValid] = useState(false);
+
+    useEffect(() => {
+        setIsValid(
+            selectedBackgroundIndex !== null &&
+            boardTitle.trim() !== "" &&
+            selectedWorkspace !== null &&
+            selectedVisibility !== null
+        );
+    }, [selectedBackgroundIndex, boardTitle, selectedWorkspace, selectedVisibility]);
+
+    useEffect(() => {
+        setVisibilityDefaultValue({
+            label: "WorkSpace",
+            describe: `All members of ${selectedWorkspace ? selectedWorkspace.label : "the choosed workspace"} can consult and edit this board`,
+            img: <Icon.FaUserFriends />,
+            value: "workspace"
+        });
+    }, [selectedWorkspace]);
+
+    const customStyles = {
+        option: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.isSelected ? "rgba(184, 221, 247, 0.25)" : "white",
+            color: state.isSelected ? "#0047AB" : "",
+            ":hover": {
+                backgroundColor: "#E5E4E2",
+            },
+        }),
+    };
 
     const handleItemClick = (index) => {
         setSelectedBackgroundIndex(index);
@@ -17,6 +59,29 @@ const HomePage = () => {
         }
     };
 
+    const handleInputChange = (e) => {
+        const inputValue = e.target.value;
+        setBoardTitle(inputValue);
+
+        const isValidInput = inputValue.trim() !== "";
+        setIsValid(isValidInput);
+    };
+
+    const handleWorkSpaceSelectChange = (selectedWorkspace) => {
+        setSelectedWorkspace(selectedWorkspace);
+    };
+
+    const handleVisibilitySelectChange = (selectedVisibility) => {
+        setSelectedVisibility(selectedVisibility);
+    };
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        console.log("form sent!!!");
+    };
+
+    const isInvalid = !selectedWorkspace;
+
     const backgroundImages = [
         "https://images.unsplash.com/photo-1703016445632-240f009aa738?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDF8MzE3MDk5fHx8fHwyfHwxNzAzNTkzMDE5fA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=400",
         "https://images.unsplash.com/photo-1703354445674-7c39f58a37ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDJ8MzE3MDk5fHx8fHwyfHwxNzAzNTkzMDE5fA&ixlib=rb-4.0.3&q=80&w=400",
@@ -25,42 +90,10 @@ const HomePage = () => {
 
     ]
 
-    const [boardTitle, setBoardTitle] = useState('');
-    const [isValid, setIsValid] = useState(false);
-
-    const handleInputChange = (e) => {
-        const inputValue = e.target.value;
-        setBoardTitle(inputValue);
-
-        const isValidInput = inputValue.trim() !== '';
-
-        setIsValid(isValidInput);
-    };
-
-
-    const customStyles = {
-        option: (provided, state) => ({
-            ...provided,
-            backgroundColor: state.isSelected ? 'rgba(184, 221, 247, 0.25)' : 'white',
-            color: state.isSelected ? '#0047AB' : '',
-            ':hover': {
-                backgroundColor: '#E5E4E2',
-            },
-        }),
-    };
-
-    const [selectedOption, setSelectedOption] = useState(false);
-
-    const handleSelectChange = (selectedOption) => {
-        setSelectedOption(selectedOption);
-    };
-
-    const isInvalid = !selectedOption || selectedOption.value === -1;
-
     return (
         <div>
             <div className="row">
-                <div className="p-2 border shadow-sm col-lg-10" style={{ borderRadius: "10px", maxWidth: "36rem" }}>
+                <div className="p-2 border shadow-sm col-xlg-10" style={{ borderRadius: "10px", maxWidth: "36rem" }}>
                     <img className="w-100" src="/graphic_image.jpg" alt="Image HomePage" />
                     <div className="py-2 px-1">
                         <p className="h6 fw-bold">Stay on track and up to date</p>
@@ -70,7 +103,7 @@ const HomePage = () => {
                     </div>
                 </div>
 
-                <div className="col-lg-2">
+                <div className="col-xlg-2">
                     <div className="mt-5">
                         <div className="d-flex justify-content-start align-items-center mb-2">
                             <Icon.FaRegStar />
@@ -78,7 +111,7 @@ const HomePage = () => {
                         </div>
                         <div style={{ overflowY: "scroll", width: "fit-content", maxHeight: "16rem", borderRadius: "10px" }} className="pe-1 border border-end-0 shadow-sm">
                             <ul>
-                                {[...Array(6)].map((_, index) => (
+                                {[...Array(FAVORITES_COUNT)].map((_, index) => (
                                     <li className="nav-link mt-1" style={{ width: "fit-content", borderRadius: "10px" }} key={`item-${index}`}>
                                         <div className="d-flex align-items-center p-2">
                                             <div style={{ width: "16rem" }}>
@@ -122,7 +155,7 @@ const HomePage = () => {
                             </div>
                         </div>
                         <div>
-                            <div className="modal fade" id="addBoard" aria-labelledby="addBoardLabel" tabIndex="-1" aria-hidden="true" style={{ display: "none" }}>
+                            <div className="modal fade" id="addBoard" tabIndex="-1" role="dialog" aria-labelledby="addBoardLabel" aria-hidden="true" style={{ display: "none" }}>
                                 <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable" style={{ width: "24rem" }}>
                                     <div className="modal-content">
                                         <div className="modal-header">
@@ -136,7 +169,7 @@ const HomePage = () => {
                                                 </div>
                                             </div>
                                             <div>
-                                                <form>
+                                                <form onSubmit={handleFormSubmit}>
                                                     <div className="mb-3">
                                                         <div>
                                                             <label className="form-label" htmlFor="selected-background-index">Backgrounds</label>
@@ -183,10 +216,15 @@ const HomePage = () => {
                                                     </div>
                                                     <div className="mb-3">
                                                         <label htmlFor="board-title" className="form-label">Board's Tile</label>
-                                                        <input type="text" name="board-title" id="board-title" className={`form-control ${isValid ? '' : 'is-invalid'}`}
+                                                        <input
+                                                            type="text"
+                                                            name="board-title"
+                                                            id="board-title"
+                                                            className={`form-control ${boardTitle.trim() !== '' ? '' : 'is-invalid'}`}
                                                             value={boardTitle}
                                                             onChange={handleInputChange}
-                                                            required />
+                                                            required
+                                                        />
                                                         <div className="invalid-feedback">
                                                             <span>
                                                                 <Icon.FaHandSpock className="me-2" style={{ color: "#FFBF00" }} />
@@ -203,16 +241,13 @@ const HomePage = () => {
                                                             name="workspace"
                                                             id="workspace"
                                                             options={[
-                                                                { label: '---', value: -1 },
                                                                 { label: 'WorkSpace 1', value: 1 },
                                                                 { label: 'WorkSpace 2', value: 2 },
                                                                 { label: 'WorkSpace 3', value: 3 },
                                                                 { label: 'WorkSpace 4', value: 4 },
                                                             ].map(({ label, value }) => ({ label, value }))}
-                                                            defaultValue={{ label: '---', value: -1 }}
-                                                            placeholder="Select your WorkSpace"
                                                             styles={customStyles}
-                                                            onChange={handleSelectChange}
+                                                            onChange={handleWorkSpaceSelectChange}
                                                         />
                                                         {isInvalid && (
                                                             <div className="invalid-feedback">
@@ -222,6 +257,44 @@ const HomePage = () => {
                                                                 </span>
                                                             </div>
                                                         )}
+                                                    </div>
+                                                    <div className="mb-3">
+                                                        <label htmlFor="visibility" className="form-label">Visibility</label>
+                                                        <Select
+                                                            name="visibility"
+                                                            id="visibility"
+                                                            options={[
+                                                                { label: "Private", describe: "Only the members of the board can consult and edit this board", img: <Icon.FaLock />, value: "private" },
+                                                                { label: visibilityDefaultValue.label, describe: visibilityDefaultValue.describe, img: visibilityDefaultValue.img, value: visibilityDefaultValue.value },
+                                                                { label: "Public", describe: "Only the members of the board can consult and edit this board", img: <Icon.FaUnlock />, value: "public" }
+                                                            ].map(({ label, describe, img, value }) => ({ label, describe, img, value }))}
+                                                            styles={customStyles}
+                                                            formatOptionLabel={({ label, describe, img, value }) => (
+                                                                <div style={{ width: "fit-content", height: "fit-content" }}>
+                                                                    <div className="f-bold">{label}</div>
+                                                                    <div className="d-flex align-items-center justify-content-between">
+                                                                        <div className="me-3">{img}</div>
+                                                                        <div style={{ fontSize: "12.5px" }}>{describe}</div>
+                                                                    </div>
+                                                                </div>
+                                                            )}
+                                                            defaultValue={visibilityDefaultValue}
+                                                            closeMenuOnSelect={false}
+                                                            components={{
+                                                                SingleValue: ({ children, ...props }) => (
+                                                                    <SingleValue {...props}>
+                                                                        <div style={{ width: "fit-content", height: "fit-content" }} className="d-flex align-items-center justify-content-between">
+                                                                            <div className="me-3">{props.data.img}</div>
+                                                                            <div className="f-bold">{props.data.label}</div>
+                                                                        </div>
+                                                                    </SingleValue>
+                                                                ),
+                                                            }}
+                                                            onChange={handleVisibilitySelectChange}
+                                                        />
+                                                    </div>
+                                                    <div className="mb-3">
+                                                        <button type="submit" className="btn btn-primary d-block w-75 m-auto" id="create-board-submit" disabled={!isValid}>Create</button>
                                                     </div>
                                                 </form>
                                             </div>
