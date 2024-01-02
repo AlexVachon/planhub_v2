@@ -12,6 +12,7 @@ const BoardItem = ({ id, title, imageUrl, boardId, onDragStart }) => (
             backgroundImage: `url(${imageUrl})`,
             borderRadius: "5px",
             backgroundPosition: "50%",
+            width: "185px"
         }}
         className="board mx-2 shadow"
         draggable
@@ -22,8 +23,8 @@ const BoardItem = ({ id, title, imageUrl, boardId, onDragStart }) => (
                 <div title={title} dir="auto" className="d-inline-block board-title">
                     <div>{title}</div>
                 </div>
-                <div className="d-flex justify-content-end" style={{ alignItems: "baseline", flex: "0 0 auto" }}>
-                    <span title={boardId} dir="auto" className="d-block board-id">
+                <div className="d-flex justify-content-end" style={{ alignItems: "baseline", flex: "0 0 auto"}}>
+                    <span title={boardId} dir="auto" className="d-block board-id" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '185px' }}>
                         {boardId}
                     </span>
                     <span className="d-flex align-items-center position-relative ms-2">
