@@ -1,5 +1,5 @@
-import React, { useState, useE } from "react";
-import * as Icon from "react-icons/fa";
+import React, { useState } from "react";
+import * as Icon from "react-icons/fa"
 
 
 const backgroundImages = [
@@ -71,92 +71,92 @@ const initialAllBoards = [
     },
     {
         id: "5",
-        title: "Mon Projet 4",
+        title: "Mon Projet 5",
         imageUrl: backgroundImages[3],
         workspace: "workspace-1",
         is_favorite: false
     },
     {
         id: "6",
-        title: "Mon Projet 4",
+        title: "Mon Projet 6",
         imageUrl: backgroundImages[3],
         workspace: "workspace-1",
         is_favorite: false
     },
     {
         id: "7",
-        title: "Mon Projet 4",
+        title: "Mon Projet 7",
         imageUrl: backgroundImages[3],
         workspace: "workspace-1",
         is_favorite: false
     }
     ,
     {
-        id: "7",
-        title: "Mon Projet 4",
+        id: "8",
+        title: "Mon Projet 8",
         imageUrl: backgroundImages[3],
         workspace: "workspace-1",
         is_favorite: false
     },
     {
-        id: "7",
-        title: "Mon Projet 4",
+        id: "9",
+        title: "Mon Projet 9",
         imageUrl: backgroundImages[3],
         workspace: "workspace-1",
         is_favorite: false
     },
     {
-        id: "7",
-        title: "Mon Projet 4",
+        id: "10",
+        title: "Mon Projet 10",
         imageUrl: backgroundImages[3],
         workspace: "workspace-1",
         is_favorite: false
     },
     {
-        id: "7",
-        title: "Mon Projet 4",
+        id: "11",
+        title: "Mon Projet 11",
         imageUrl: backgroundImages[3],
         workspace: "workspace-1",
         is_favorite: false
     },
     {
-        id: "7",
-        title: "Mon Projet 4",
+        id: "12",
+        title: "Mon Projet 12",
         imageUrl: backgroundImages[3],
         workspace: "workspace-1",
         is_favorite: false
     },
     {
-        id: "7",
-        title: "Mon Projet 4",
+        id: "13",
+        title: "Mon Projet 13",
         imageUrl: backgroundImages[3],
         workspace: "workspace-1",
         is_favorite: false
     },
     {
-        id: "7",
-        title: "Mon Projet 4",
+        id: "14",
+        title: "Mon Projet 14",
         imageUrl: backgroundImages[3],
         workspace: "workspace-1",
         is_favorite: false
     },
     {
-        id: "7",
-        title: "Mon Projet 4",
+        id: "15",
+        title: "Mon Projet 15",
         imageUrl: backgroundImages[3],
         workspace: "workspace-1",
         is_favorite: false
     },
     {
-        id: "7",
-        title: "Mon Projet 4",
+        id: "16",
+        title: "Mon Projet 16",
         imageUrl: backgroundImages[3],
         workspace: "workspace-1",
         is_favorite: false
     },
     {
-        id: "7",
-        title: "Mon Projet 4",
+        id: "17",
+        title: "Mon Projet 17",
         imageUrl: backgroundImages[3],
         workspace: "workspace-1",
         is_favorite: false
@@ -172,18 +172,19 @@ const Boards = () => {
 
 
     return (
-        <div>
+
+        <div className="boards-container">
             <div className="mb-5">
                 <div className="d-flex align-items-center h6 mb-3">
                     <Icon.FaRegStar className="me-3" />
                     <div className="fw-bold">Favorites Boards</div>
                 </div>
-                <div className="board-scroll-container">
+                <div className="board-scroll-container shadow-sm p-2">
                     <ul className="board-container">
                         {favoriteBoards.map((board, index) => {
                             return (
                                 <li key={index} data-test-id={`favorite-board-item-${board.id}`} className="board shadow mx-2" style={{ backgroundImage: `url(${board.imageUrl})` }}>
-                                    <a href="#" type="button" title="Custom Image" className="d-block">
+                                    <a href="#" type="button" className="d-block">
                                         <div className="board-link">
                                             <div title={board.title} dir="auto" className="board-title">
                                                 <div>{board.title}</div>
@@ -213,7 +214,7 @@ const Boards = () => {
                     <Icon.FaTable className="me-3" />
                     <div className="fw-bold">Boards</div>
                 </div>
-                <div className="board-scroll-container">
+                <div className="board-scroll-container shadow-sm p-2">
                     <ul className="board-container">
                         {allBoards.map((board, index) => {
                             return (
