@@ -12,8 +12,8 @@ import Favorites from "./DBoardComponents/Favorites";
 
 const DashBoard = () => (
   <div id="DashBoard">
-    <div className="d-flex justify-content-left mx-auto">
-      <div className="" style={{ width: "fit-content", height: "fit-content" }}>
+    <div className="dashboard-container">
+      <div className="mb-3" style={{ width: "fit-content", height: "fit-content" }}>
         <div style={{ width: "16rem", borderRadius: "10px" }} className="py-1 shadow-sm">
           <div className="my-4 mx-2">
             <Bootstrap.Nav bg="inherit" className="bg-gradient text-decoration-none">
@@ -47,7 +47,7 @@ const DashBoard = () => (
           </div>
         </div>
       </div>
-      <div id="dashboardContent" className="mx-4" style={{ width: "fit-content" }} >
+      <div id="dashboardContent" className="mx-4" style={{ width: "100%" }} >
         <Routes>
           <Route path="/home" Component={HomePage} />
           <Route path="/tables" Component={Boards} />

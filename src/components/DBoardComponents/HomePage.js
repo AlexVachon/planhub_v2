@@ -91,8 +91,8 @@ const HomePage = () => {
     ]
 
     return (
-        <div className="row mx-auto">
-            <div className="p-2 border shadow-sm col-xlg-10" style={{ borderRadius: "10px", maxWidth: "36rem" }}>
+        <div className="info-container">
+            <div className="p-2 border shadow-sm info-image">
                 <img className="w-100" src="/graphic_image.jpg" alt="Image HomePage" />
                 <div className="py-2 px-1">
                     <p className="h6 fw-bold">Stay on track and up to date</p>
@@ -102,13 +102,13 @@ const HomePage = () => {
                 </div>
             </div>
 
-            <div className="col-xlg-2" style={{ width: "fit-content" }}>
+            <div className="">
                 <div className="mt-5" >
                     <div className="d-flex justify-content-start align-items-center mb-2">
                         <Icon.FaRegStar />
                         <div className="ms-2 text-secondary" style={{ fontSize: "15px" }}>Favorites</div>
                     </div>
-                    <div style={{ overflowY: "scroll", width: "fit-content", maxHeight: "16rem", borderRadius: "10px" }} className="pe-1 border border-end-0 shadow-sm">
+                    <div className="pe-1 border border-end-0 shadow-sm info-scroll-container">
                         <ul>
                             {[...Array(FAVORITES_COUNT)].map((_, index) => (
                                 <li className="nav-link mt-1" style={{ width: "fit-content", borderRadius: "10px" }} key={`item-${index}`}>
@@ -122,7 +122,7 @@ const HomePage = () => {
                                                 </span>
                                             </a>
                                         </div>
-                                        <div className="icon">
+                                        <div className="icon" title="Remove from Favorites">
                                             {/* Ameliorer la gestion du hover */}
                                             <Icon.FaStar style={{ color: "#FFBF00" }} className="ms-2" onMouseEnter={(e) => {
                                                 {/* <Icon.FaRegStar/> */ }
