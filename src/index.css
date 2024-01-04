@@ -67,6 +67,45 @@ a:not(.active) li div:hover {
   background-color: #E5E4E2;
 }
 
+.dashboard-container{
+  display: flex;
+  justify-content: start;
+  margin: auto
+}
+
+.info-container{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.info-image{
+  border-radius: 10px;
+  max-width: 32rem;
+}
+
+.info-scroll-container{
+  overflow-y: scroll;
+  width: fit-content;
+  max-height: 16rem;
+  border-radius: 10px;
+}
+
+@media (max-width: 1400px) {
+  .dashboard-container{
+    display: block;
+  }
+  .info-container{
+    display: block;
+    width:80%;
+    margin: 0 auto;
+  }
+  .info-image{
+    padding: 0;
+    margin: 0;
+  }
+}
+
 .icon:hover {
   cursor: pointer;
 }
@@ -101,6 +140,10 @@ a:not(.active) li div:hover {
   }
 }
 
+.boards-container{
+  display: flex;
+  flex-direction: column;
+}
 
 .star-icon {
   color: #ffbf00;
@@ -123,7 +166,8 @@ a:not(.active) li div:hover {
 .board-scroll-container {
   max-height: 300px;
   overflow-y: auto;
-  max-width: calc(100% - 175px);
+  max-width: 85%;
+  border-radius: 5px;
 }
 
 .board a {
